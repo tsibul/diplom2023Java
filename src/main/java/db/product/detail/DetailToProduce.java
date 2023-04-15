@@ -7,9 +7,9 @@ import javax.persistence.*;
 @Entity
 @Table(name = "detail_to_produce")
 public class DetailToProduce extends Detail{
-    @Column(name = "actual_weight_g", nullable = false)
-    private int actualWeightG;
-    @Column(name = "actual_material", length = 40, nullable = false)
+    @Column(name = "actual_weight_g", nullable = false, precision = 1)
+    private double actualWeightG;
+    @Column(name = "actual_material", length = 40)
     private String actualMaterial;
     @Column(name = "doze_master_batch", precision = 2, nullable = false)
     private double dozeMasterBatch;
@@ -19,7 +19,7 @@ public class DetailToProduce extends Detail{
     @JoinColumn(name = "color", referencedColumnName = "color_id", nullable = false)
     private Color color;
 
-    public int getActualWeightG() {
+    public double getActualWeightG() {
         return actualWeightG;
     }
 

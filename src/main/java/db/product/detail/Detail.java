@@ -14,9 +14,9 @@ public class Detail {
     private Long detailId;
     @Column(name = "detail_name")
     private String detailName;
-    @Column(name = "detail_base_weight_g")
-    private int detailBaseWeightG;
-    @Column(name = "detail_base_material")
+    @Column(name = "detail_base_weight_g", precision = 1, nullable = false)
+    private double detailBaseWeightG;
+    @Column(name = "detail_base_material", nullable = false)
     private int detailBaseMaterial;
     @ManyToOne(targetEntity = MoldInsert.class)
     @JoinColumn(name = "mold_insert", referencedColumnName = "equipment_id", nullable = false)
@@ -26,6 +26,10 @@ public class Detail {
     private Product product;
     @Column(name = "index_in_product", nullable = false)
     private int indexInProduct;
+    @Column(name = "stroke_weight_g", precision = 1)
+    private double stokeWeightG;
+    @Column(name = "gate_weight_g", precision = 1)
+    private double gateWeightG;
 
     public Product getProduct() {
         return product;
@@ -61,7 +65,7 @@ public class Detail {
         this.detailName = detailName;
     }
 
-    public int getDetailBaseWeightG() {
+    public double getDetailBaseWeightG() {
         return detailBaseWeightG;
     }
 
@@ -83,5 +87,25 @@ public class Detail {
 
     public void setMoldInsert(MoldInsert moldInsert) {
         this.moldInsert = moldInsert;
+    }
+
+    public void setDetailBaseWeightG(double detailBaseWeightG) {
+        this.detailBaseWeightG = detailBaseWeightG;
+    }
+
+    public double getStokeWeightG() {
+        return stokeWeightG;
+    }
+
+    public void setStokeWeightG(double stokeWeightG) {
+        this.stokeWeightG = stokeWeightG;
+    }
+
+    public double getGateWeightG() {
+        return gateWeightG;
+    }
+
+    public void setGateWeightG(double gateWeightG) {
+        this.gateWeightG = gateWeightG;
     }
 }
