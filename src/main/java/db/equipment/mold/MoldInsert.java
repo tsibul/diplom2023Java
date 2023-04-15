@@ -27,7 +27,6 @@ public class MoldInsert extends Equipment {
     @Column(name = "single_insert")
     @ColumnDefault("true")
     private boolean singleInsert;
-    private String product;
 
     public String getModifierCode() {
         return modifierCode;
