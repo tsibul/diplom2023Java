@@ -1,6 +1,7 @@
-package db.product;
+package db.product.detail;
 
 import db.equipment.mold.MoldInsert;
+import db.product.Product;
 
 import javax.persistence.*;
 
@@ -11,8 +12,6 @@ public class Detail {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "detail_id")
     private Long detailId;
-    @Column(name = "detail_code")
-    private String detailCode;
     @Column(name = "detail_name")
     private String detailName;
     @Column(name = "detail_base_weight_g")
@@ -22,6 +21,29 @@ public class Detail {
     @ManyToOne(targetEntity = MoldInsert.class)
     @JoinColumn(name = "mold_insert", referencedColumnName = "equipment_id", nullable = false)
     private MoldInsert moldInsert;
+    @ManyToOne(targetEntity = Product.class)
+    @JoinColumn(name = "product", referencedColumnName = "product_id", nullable = false)
+    private Product product;
+    @Column(name = "index_in_product", nullable = false)
+    private int indexInProduct;
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public int getIndexInProduct() {
+        return indexInProduct;
+    }
+
+    public void setIndexInProduct(int indexInProduct) {
+        if (indexInProduct <= this.product.getNumberDetails() && indexInProduct > 0) {
+            this.indexInProduct = indexInProduct;
+        }
+    }
 
     public Long getDetailId() {
         return detailId;
@@ -29,14 +51,6 @@ public class Detail {
 
     public void setDetailId(Long detailId) {
         this.detailId = detailId;
-    }
-
-    public String getDetailCode() {
-        return detailCode;
-    }
-
-    public void setDetailCode(String detailCode) {
-        this.detailCode = detailCode;
     }
 
     public String getDetailName() {
