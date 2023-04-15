@@ -1,6 +1,7 @@
 package db.equipment.mold;
 
 import db.equipment.Equipment;
+import db.equipment.injectionmoldingmachine.InjectionMoldingMachine;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
@@ -26,6 +27,28 @@ public class MoldBase extends Equipment {
     private int moldMountTimeMin;
     @Column(name = "mold_release_time_min")
     private int moldReleaseTimeMin;
+    @Column(name = "mold_mounted")
+    @ColumnDefault("true")
+    private boolean moldMounted;
+    @ManyToOne(targetEntity = InjectionMoldingMachine.class)
+    @JoinColumn(name = "mold_mounted_to", referencedColumnName = "equipment_id")
+    private InjectionMoldingMachine moldMountedTo;
+
+    public boolean isMoldMounted() {
+        return moldMounted;
+    }
+
+    public void setMoldMounted(boolean moldMounted) {
+        this.moldMounted = moldMounted;
+    }
+
+    public InjectionMoldingMachine getMoldMountedTo() {
+        return moldMountedTo;
+    }
+
+    public void setMoldMountedTo(InjectionMoldingMachine moldMountedTo) {
+        this.moldMountedTo = moldMountedTo;
+    }
 
     public int getMoldBaseWidthMm() {
         return moldBaseWidthMm;

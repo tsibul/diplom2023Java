@@ -3,9 +3,7 @@ package db.equipment.mold;
 import db.equipment.Equipment;
 import org.hibernate.annotations.ColumnDefault;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "mold_insert")
@@ -27,6 +25,31 @@ public class MoldInsert extends Equipment {
     @Column(name = "single_insert")
     @ColumnDefault("true")
     private boolean singleInsert;
+    @Column(name = "insert_mounted")
+    @ColumnDefault("true")
+    private boolean insertMounted;
+    @ManyToOne(targetEntity = MoldModifier.class)
+    @JoinColumn(name = "insert_mounted_to", referencedColumnName = "equipment_id")
+    private MoldModifier insertMountedTo;
+
+    public boolean isInsertMounted() {
+        return insertMounted;
+    }
+
+    public void setInsertMounted(boolean insertMounted) {
+        if(!this.isSingleInsert()){
+        this.insertMounted = insertMounted;}
+    }
+
+
+    public MoldModifier getInsertMountedTo() {
+        return insertMountedTo;
+    }
+
+    public void setInsertMountedTo(MoldModifier insertMountedTo) {
+        if(!this.isSingleInsert()){
+        this.insertMountedTo = insertMountedTo;}
+    }
 
     public String getModifierCode() {
         return modifierCode;

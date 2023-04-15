@@ -1,6 +1,7 @@
 package db.equipment.injectionmoldingmachine;
 
 import db.equipment.Equipment;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 
@@ -23,6 +24,13 @@ public class SpacerPlate extends Equipment {
     private int mountingRingDiameterMm;
     @Column(name = "mold_ring_diameter_mm")
     private int moldRingDiameterMm;
+    @Column(name = "plate_mounted")
+    @ColumnDefault("true")
+    private boolean plateMounted;
+    @ManyToOne(targetEntity = InjectionMoldingMachine.class)
+    @JoinColumn(name = "plate_mounted_to", referencedColumnName = "equipment_id")
+    private InjectionMoldingMachine plateMountedTo;
+
 
     public int getPlateHeightMm() {
         return plateHeightMm;
