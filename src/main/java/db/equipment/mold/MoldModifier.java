@@ -28,8 +28,6 @@ public class MoldModifier extends Equipment {
     private int numberAirValves;
     @Column(name = "number_hydraulic_cylinders")
     private int numberHydraulicCylinders;
-    @Column(name = "number_cavities")
-    private int numberCavities;
     @Column(name = "if_changeable_insert")
     @ColumnDefault("false")
     private boolean ifChangeableInsert;
@@ -103,14 +101,6 @@ public class MoldModifier extends Equipment {
 
     public void setNumberHydraulicCylinders(int numberHydraulicCylinders) {
         this.numberHydraulicCylinders = numberHydraulicCylinders;
-    }
-
-    public int getNumberCavities() {
-        return numberCavities;
-    }
-
-    public void setNumberCavities(int numberCavities) {
-        this.numberCavities = numberCavities;
     }
 
     public boolean isIfChangeableInsert() {
