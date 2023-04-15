@@ -12,7 +12,7 @@ public class Detail {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "detail_id")
     private Long detailId;
-    @Column(name = "detail_name")
+    @Column(name = "detail_name", nullable = false)
     private String detailName;
     @Column(name = "detail_base_weight_g", precision = 1, nullable = false)
     private double detailBaseWeightG;
@@ -30,6 +30,8 @@ public class Detail {
     private double stokeWeightG;
     @Column(name = "gate_weight_g", precision = 1)
     private double gateWeightG;
+    @Column(name = "standard_items_per_box", nullable = false)
+    private int standardItemsPerBox;
 
     public Product getProduct() {
         return product;
@@ -107,5 +109,13 @@ public class Detail {
 
     public void setGateWeightG(double gateWeightG) {
         this.gateWeightG = gateWeightG;
+    }
+
+    public int getStandardItemsPerBox() {
+        return standardItemsPerBox;
+    }
+
+    public void setStandardItemsPerBox(int standardItemsPerBox) {
+        this.standardItemsPerBox = standardItemsPerBox;
     }
 }

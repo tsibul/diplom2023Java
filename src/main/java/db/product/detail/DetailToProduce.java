@@ -18,6 +18,8 @@ public class DetailToProduce extends Detail{
     @ManyToOne(targetEntity = Color.class)
     @JoinColumn(name = "color", referencedColumnName = "color_id", nullable = false)
     private Color color;
+    @Column(name = "items_per_box")
+    private int itemsPerBox;
 
     public double getActualWeightG() {
         return actualWeightG;
@@ -57,5 +59,17 @@ public class DetailToProduce extends Detail{
 
     public void setColor(Color color) {
         this.color = color;
+    }
+
+    public void setActualWeightG(double actualWeightG) {
+        this.actualWeightG = actualWeightG;
+    }
+
+    public int getItemsPerBox() {
+        return itemsPerBox;
+    }
+
+    public void setItemsPerBox(int itemsPerBox) {
+        this.itemsPerBox = itemsPerBox;
     }
 }
