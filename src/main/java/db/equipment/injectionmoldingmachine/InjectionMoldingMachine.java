@@ -7,8 +7,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "injection_molding_machine")
 public class InjectionMoldingMachine extends Equipment {
-    @Column(name = "molding_pressure_kN", nullable = false)
-    private int moldingPressureKn;
+    @Column(name = "clamping_force_kN", nullable = false)
+    private int clampingForceKn;
     @Column(name = "plate_height_mm", nullable = false)
     private int plateHeightMm;
     @Column(name = "plate_width_mm", nullable = false)
@@ -59,12 +59,12 @@ public class InjectionMoldingMachine extends Equipment {
     private String immType;
 
 
-    public int getMoldingPressureKn() {
-        return moldingPressureKn;
+    public int getClampingForceKn() {
+        return clampingForceKn;
     }
 
-    public void setMoldingPressureKn(int moldingPressureKn) {
-        this.moldingPressureKn = moldingPressureKn;
+    public void setClampingForceKn(int clampingForceKn) {
+        this.clampingForceKn = clampingForceKn;
     }
 
     public int getPlateHeightMm() {
