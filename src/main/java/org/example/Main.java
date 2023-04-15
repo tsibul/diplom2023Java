@@ -1,7 +1,6 @@
 package org.example;
 
-import db.equipment.EquipmentKind;
-import db.equipment.Imm;
+import db.equipment.injectionmoldingmachine.InjectionMoldingMachine;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -52,7 +51,7 @@ public class Main {
             closeDatabaseConnection();
         }
         */
-        Imm imm = new Imm();
+        InjectionMoldingMachine imm = new InjectionMoldingMachine();
         System.out.println("Hello world!");
     }
 
