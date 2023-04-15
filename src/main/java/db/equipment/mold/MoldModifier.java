@@ -11,6 +11,10 @@ import javax.persistence.Table;
 @Table(name = "mold_modifier")
 public class MoldModifier extends Equipment {
 
+    @Column(name = "modifier_code", length = 2)
+    private String modifierCode;
+    @Column(name = "modifier_name", length = 100)
+    private String modifierName;
     @Column(name = "mold_weight_kg")
     private int moldWeightKg;
     @Column(name = "mold_height_mm")
@@ -34,6 +38,25 @@ public class MoldModifier extends Equipment {
     private int modifierMountTime;
     @Column(name = "modifier_release_time")
     private int modifierReleaseTime;
+    @Column(name = "single_modifier")
+    @ColumnDefault("true")
+    private boolean singleModifier;
+
+    public String getModifierCode() {
+        return modifierCode;
+    }
+
+    public void setModifierCode(String modifierCode) {
+        this.modifierCode = modifierCode;
+    }
+
+    public String getModifierName() {
+        return modifierName;
+    }
+
+    public void setModifierName(String modifierName) {
+        this.modifierName = modifierName;
+    }
 
     public int getMoldWeightKg() {
         return moldWeightKg;
@@ -113,5 +136,13 @@ public class MoldModifier extends Equipment {
 
     public void setModifierReleaseTime(int modifierReleaseTime) {
         this.modifierReleaseTime = modifierReleaseTime;
+    }
+
+    public boolean isSingleModifier() {
+        return singleModifier;
+    }
+
+    public void setSingleModifier(boolean singleModifier) {
+        this.singleModifier = singleModifier;
     }
 }
