@@ -3,34 +3,40 @@ package db.equipment;
 import db.producer.Producer;
 
 import javax.persistence.*;
+import java.time.Year;
 import java.util.Date;
-import db.equipment.EquipmentKind;
+
 @MappedSuperclass
 public abstract class Equipment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Long id;
-
+    @Column(name = "equipment_id")
+    private Long equipmentId;
+    @Column(length = 14, name = "inventory_code")
+    private String inventoryCode;
     @ManyToOne(targetEntity = EquipmentKind.class)
-    @JoinColumn(name = "equpment_kind", referencedColumnName = "kind_id")
+    @JoinColumn(name = "equpment_kind", referencedColumnName = "kind_id", nullable = false)
     protected EquipmentKind equipmentKind;
-
     @ManyToOne(targetEntity = EquipmentType.class)
-    @JoinColumn(name = "equipment_type", referencedColumnName = "type_id")
+    @JoinColumn(name = "equipment_type", referencedColumnName = "type_id", nullable = false)
     private EquipmentType equipmentType;
+    @Column(length = 2, name = "equipment_code")
     private String equipmentCode;
+    @Column(nullable = false, name = "equipment_name")
     protected String equipmentName;
-    private String modificatorCode;
-    private String modificatorName;
-    private String insertCode;
-    private String insertName;
     @ManyToOne(targetEntity = Producer.class)
     @JoinColumn(name = "producer", referencedColumnName = "id")
     private Producer equipmentProducer;
+    @Column(unique = true, name = "part_number")
     private String partNumber;
-    private String yearProduction;
+    @Column(length = 4, name = "year_production")
+    private Year yearProduction;
+    @Column(name = "receive_date")
     private Date receiveDate;
+
+    public Long getEquipmentId() {
+        return equipmentId;
+    }
 
     public EquipmentKind getEquipmentKind() {
         return equipmentKind;
@@ -64,38 +70,6 @@ public abstract class Equipment {
         this.equipmentName = equipmentName;
     }
 
-    public String getModificatorCode() {
-        return modificatorCode;
-    }
-
-    public void setModificatorCode(String modificatorCode) {
-        this.modificatorCode = modificatorCode;
-    }
-
-    public String getModificatorName() {
-        return modificatorName;
-    }
-
-    public void setModificatorName(String modificatorName) {
-        this.modificatorName = modificatorName;
-    }
-
-    public String getInsertCode() {
-        return insertCode;
-    }
-
-    public void setInsertCode(String insertCode) {
-        this.insertCode = insertCode;
-    }
-
-    public String getInsertName() {
-        return insertName;
-    }
-
-    public void setInsertName(String insertName) {
-        this.insertName = insertName;
-    }
-
     public Producer getEquipmentProducer() {
         return equipmentProducer;
     }
@@ -112,11 +86,11 @@ public abstract class Equipment {
         this.partNumber = partNumber;
     }
 
-    public String getYearProduction() {
+    public Year getYearProduction() {
         return yearProduction;
     }
 
-    public void setYearProduction(String yearProduction) {
+    public void setYearProduction(Year yearProduction) {
         this.yearProduction = yearProduction;
     }
 
@@ -127,4 +101,13 @@ public abstract class Equipment {
     public void setReceiveDate(Date receiveDate) {
         this.receiveDate = receiveDate;
     }
+
+    public String getInventoryCode() {
+        return inventoryCode;
+    }
+
+    public void setInventoryCode(String inventoryCode) {
+        this.inventoryCode = this.equipmentKind.getKindCode() + "." + this.equipmentType.getTypeCode() + "." + this.equipmentCode;
+    }
+
 }
