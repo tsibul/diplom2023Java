@@ -31,6 +31,21 @@ public class SpacerPlate extends Equipment {
     @JoinColumn(name = "plate_mounted_to", referencedColumnName = "equipment_id")
     private InjectionMoldingMachine plateMountedTo;
 
+    public boolean isPlateMounted() {
+        return plateMounted;
+    }
+
+    public void setPlateMounted(boolean plateMounted) {
+        this.plateMounted = plateMounted;
+    }
+
+    public InjectionMoldingMachine getPlateMountedTo() {
+        return plateMountedTo;
+    }
+
+    public void setPlateMountedTo(InjectionMoldingMachine plateMountedTo) {
+        this.plateMountedTo = plateMountedTo;
+    }
 
     public int getPlateHeightMm() {
         return plateHeightMm;
