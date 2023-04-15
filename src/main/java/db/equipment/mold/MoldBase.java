@@ -18,9 +18,9 @@ public class MoldBase extends Equipment {
     @Column(name = "hot_runner")
     @ColumnDefault("false")
     private boolean hotRunner;
-    @Column(name = "moving_plate_diameter_mm")
+    @Column(name = "moving_plate_ring_diameter_mm")
     private int movingPlateRingDiameterMm;
-    @Column(name = "fixed_plate_diameter_mm")
+    @Column(name = "fixed_plate_ring_diameter_mm")
     private int fixedPlateRingDiameterMm;
     @Column(name = "mold_mount_time_min")
     private int moldMountTimeMin;
