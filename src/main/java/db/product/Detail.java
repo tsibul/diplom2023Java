@@ -23,4 +23,51 @@ public class Detail {
     @JoinColumn(name = "mold_insert", referencedColumnName = "equipment_id", nullable = false)
     private MoldInsert moldInsert;
 
+    public Long getDetailId() {
+        return detailId;
+    }
+
+    public void setDetailId(Long detailId) {
+        this.detailId = detailId;
+    }
+
+    public String getDetailCode() {
+        return detailCode;
+    }
+
+    public void setDetailCode(String detailCode) {
+        this.detailCode = detailCode;
+    }
+
+    public String getDetailName() {
+        return detailName;
+    }
+
+    public void setDetailName(String detailName) {
+        this.detailName = detailName;
+    }
+
+    public int getDetailBaseWeightG() {
+        return detailBaseWeightG;
+    }
+
+    public void setDetailBaseWeightG(int detailBaseWeightG) {
+        this.detailBaseWeightG = detailBaseWeightG;
+    }
+
+    public int getDetailBaseMaterial() {
+        return detailBaseMaterial;
+    }
+
+    public void setDetailBaseMaterial(int detailBaseMaterial) {
+        this.detailBaseMaterial = detailBaseMaterial;
+    }
+
+    public MoldInsert getMoldInsert() {
+        return moldInsert;
+    }
+
+    public void setMoldInsert(MoldInsert moldInsert) {
+        this.moldInsert = moldInsert;
+    }
 }
