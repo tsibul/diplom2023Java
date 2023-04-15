@@ -10,7 +10,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "mold_modifier")
 public class MoldModifier extends Equipment {
-
     @Column(name = "modifier_code", length = 2)
     private String modifierCode;
     @Column(name = "modifier_name", length = 100)
