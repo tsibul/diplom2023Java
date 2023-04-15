@@ -9,9 +9,15 @@
         <property name="hibernate.connection.password">VenaJa4$</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
-        <mapping class="db.equipment.Imm" />
+        <mapping class="db.equipment.injectionmoldingmachine.InjectionMoldingMachine" />
         <mapping class="db.equipment.EquipmentKind" />
         <mapping class="db.equipment.EquipmentType" />
+        <mapping class="db.equipment.injectionmoldingmachine.SpacerPlate" />
+        <mapping class="db.equipment.mold.MoldBase" />
+        <mapping class="db.equipment.mold.MoldModifier" />
+        <mapping class="db.equipment.mold.MoldInsert" />
+        <mapping class="db.equipment.mold.periphery.HydraulicCylinder" />
+        <mapping class="db.product.Detail" />
         <mapping class="db.producer.Producer" />
         <mapping class="db.producer.Country" />
     </session-factory>
