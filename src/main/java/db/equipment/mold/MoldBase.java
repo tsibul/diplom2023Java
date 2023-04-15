@@ -6,12 +6,12 @@ import org.hibernate.annotations.ColumnDefault;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "mold")
-public class Mold extends Equipment {
-    @Column(name = "mold_width_mm", nullable = false)
-    private int moldWidthMm;
-    @Column(name = "mold_length_mm", nullable = false)
-    private int moldLengthMm;
+@Table(name = "mold_base")
+public class MoldBase extends Equipment {
+    @Column(name = "mold_base_width_mm", nullable = false)
+    private int moldBaseWidthMm;
+    @Column(name = "mold_base_length_mm", nullable = false)
+    private int moldBaseLengthMm;
     @Column(name = "if_changeable_modifier")
     @ColumnDefault("false")
     private boolean ifChangeableModifier;
@@ -27,20 +27,20 @@ public class Mold extends Equipment {
     @Column(name = "mold_release_time_min")
     private int moldReleaseTimeMin;
 
-    public int getMoldWidthMm() {
-        return moldWidthMm;
+    public int getMoldBaseWidthMm() {
+        return moldBaseWidthMm;
     }
 
-    public void setMoldWidthMm(int moldWidthMm) {
-        this.moldWidthMm = moldWidthMm;
+    public void setMoldBaseWidthMm(int moldBaseWidthMm) {
+        this.moldBaseWidthMm = moldBaseWidthMm;
     }
 
-    public int getMoldLengthMm() {
-        return moldLengthMm;
+    public int getMoldBaseLengthMm() {
+        return moldBaseLengthMm;
     }
 
-    public void setMoldLengthMm(int moldLengthMm) {
-        this.moldLengthMm = moldLengthMm;
+    public void setMoldBaseLengthMm(int moldBaseLengthMm) {
+        this.moldBaseLengthMm = moldBaseLengthMm;
     }
 
     public boolean isIfChangeableModifier() {
