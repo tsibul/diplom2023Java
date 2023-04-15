@@ -1,7 +1,6 @@
-package db.equipment.mold.perifery;
+package db.equipment.mold.periphery;
 
 import db.equipment.Equipment;
-import db.equipment.injectionmoldingmachine.InjectionMoldingMachine;
 import db.equipment.mold.MoldInsert;
 import org.hibernate.annotations.ColumnDefault;
 
