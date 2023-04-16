@@ -5,7 +5,8 @@ import db.equipment.injectionmoldingmachine.SpacerPlate;
 import db.equipment.mold.MoldBase;
 
 import javax.persistence.*;
-
+@Entity
+@Table(name = "spacerplate_to_injectionmoldingmachine")
 public class SpacerPlateToInjectionMoldingMachine {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

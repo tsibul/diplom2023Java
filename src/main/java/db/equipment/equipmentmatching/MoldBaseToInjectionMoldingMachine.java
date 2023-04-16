@@ -4,7 +4,8 @@ import db.equipment.injectionmoldingmachine.InjectionMoldingMachine;
 import db.equipment.mold.MoldBase;
 
 import javax.persistence.*;
-
+@Entity
+@Table(name = "moldbase_to_injectionmoldingmachine")
 public class MoldBaseToInjectionMoldingMachine {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
