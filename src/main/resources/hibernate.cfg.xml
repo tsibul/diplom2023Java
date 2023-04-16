@@ -9,16 +9,58 @@
         <property name="hibernate.connection.password">pass</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <mapping class="db.defects.GeneralDefects" />
+        <mapping class="db.defects.MaterialDefects" />
+        <mapping class="db.defects.MoldingDefects" />
+
+        <mapping class="db.equipment.dryer.Dryer" />
+
+        <mapping class="db.equipment.equipmentmatching.InsertToModifier" />
+        <mapping class="db.equipment.equipmentmatching.ModifierToMoldBase" />
+        <mapping class="db.equipment.equipmentmatching.MoldBaseToInjectionMoldingMachine" />
+        <mapping class="db.equipment.equipmentmatching.SpacerPlateToInjectionMoldingMachine" />
+
+        <mapping class="db.equipment.grinder.Grinder" />
+
         <mapping class="db.equipment.injectionmoldingmachine.InjectionMoldingMachine" />
-        <mapping class="db.equipment.EquipmentKind" />
-        <mapping class="db.equipment.EquipmentType" />
         <mapping class="db.equipment.injectionmoldingmachine.SpacerPlate" />
+
+        <mapping class="db.equipment.mold.periphery.HydraulicCylinder" />
+
         <mapping class="db.equipment.mold.MoldBase" />
         <mapping class="db.equipment.mold.MoldModifier" />
         <mapping class="db.equipment.mold.MoldInsert" />
-        <mapping class="db.equipment.mold.periphery.HydraulicCylinder" />
-        <mapping class="db.product.Detail" />
+
+        <mapping class="db.equipment.thermocontroller.ThermoController" />
+
+        <mapping class="db.equipment.EquipmentKind" />
+        <mapping class="db.equipment.EquipmentType" />
+
+        <mapping class="db.jobsteps.JobSteps" />
+
         <mapping class="db.producer.Producer" />
         <mapping class="db.producer.Country" />
+
+        <mapping class="db.product.color.ColorGroup" />
+        <mapping class="db.product.color.Color" />
+
+        <mapping class="db.product.detail.DetailToProduce" />
+
+        <mapping class="db.product.Product" />
+
+        <mapping class="db.rawmaterial.MainMaterialType" />
+        <mapping class="db.rawmaterial.MasterBatch" />
+
+        <mapping class="db.technologyprocess.AdditionalHydraulicCircuit" />
+        <mapping class="db.technologyprocess.ClampingUnit" />
+        <mapping class="db.technologyprocess.Cooling" />
+        <mapping class="db.technologyprocess.Drying" />
+        <mapping class="db.technologyprocess.Ejector" />
+        <mapping class="db.technologyprocess.HeatingTemperatures" />
+        <mapping class="db.technologyprocess.HoldingPressure" />
+        <mapping class="db.technologyprocess.Injection" />
+        <mapping class="db.technologyprocess.Loading" />
+
     </session-factory>
 </hibernate-configuration>
