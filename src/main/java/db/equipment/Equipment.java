@@ -15,7 +15,7 @@ public abstract class Equipment {
     @Column(length = 14, name = "inventory_code")
     private String inventoryCode;
     @ManyToOne(targetEntity = EquipmentKind.class)
-    @JoinColumn(name = "equpment_kind", referencedColumnName = "kind_id", nullable = false)
+    @JoinColumn(name = "equipment_kind", referencedColumnName = "kind_id", nullable = false)
     protected EquipmentKind equipmentKind;
     @ManyToOne(targetEntity = EquipmentType.class)
     @JoinColumn(name = "equipment_type", referencedColumnName = "type_id", nullable = false)
