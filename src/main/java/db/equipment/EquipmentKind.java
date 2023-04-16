@@ -9,10 +9,10 @@ public class EquipmentKind {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "kind_id")
     private Long id;
-    @Column(name = "kind_code", length = 2, nullable = false)
-    private String kindCode;
     @Column(name = "kind_node", length = 40, nullable = false)
     private String kindName;
+    @Column(name = "kind_code", length = 2, nullable = false)
+    private String kindCode;
 
     public Long getId() {
         return id;

@@ -9,10 +9,10 @@ public class EquipmentType {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "type_id")
     private Long id;
-    @Column(name = "type_code", length = 2)
-    private String typeCode;
     @Column(name = "type_name", length = 45)
     private String typeName;
+    @Column(name = "type_code", length = 2)
+    private String typeCode;
 
     public Long getId() {
         return id;

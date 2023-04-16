@@ -12,6 +12,8 @@ public abstract class Equipment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "equipment_id")
     private Long equipmentId;
+    @Column(nullable = false, name = "equipment_name")
+    protected String equipmentName;
     @Column(length = 14, name = "inventory_code")
     private String inventoryCode;
     @ManyToOne(targetEntity = EquipmentKind.class)
@@ -22,8 +24,6 @@ public abstract class Equipment {
     private EquipmentType equipmentType;
     @Column(length = 2, name = "equipment_code")
     private String equipmentCode;
-    @Column(nullable = false, name = "equipment_name")
-    protected String equipmentName;
     @ManyToOne(targetEntity = Producer.class)
     @JoinColumn(name = "producer", referencedColumnName = "id")
     private Producer equipmentProducer;
