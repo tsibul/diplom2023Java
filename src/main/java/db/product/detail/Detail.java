@@ -5,9 +5,8 @@ import db.product.Product;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "detail")
-public class Detail {
+@MappedSuperclass
+public abstract class Detail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "detail_id")
