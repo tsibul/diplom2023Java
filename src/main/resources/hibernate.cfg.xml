@@ -46,11 +46,13 @@
         <mapping class="db.product.color.Color" />
 
         <mapping class="db.product.detail.DetailToProduce" />
+        <mapping class="db.product.detail.Detail" />
 
         <mapping class="db.product.Product" />
 
-        <mapping class="db.rawmaterial.MainMaterialType" />
+        <mapping class="db.rawmaterial.MaterialType" />
         <mapping class="db.rawmaterial.MasterBatch" />
+        <mapping class="db.rawmaterial.MainMaterial" />
 
         <mapping class="db.technologyprocess.AdditionalHydraulicCircuit" />
         <mapping class="db.technologyprocess.ClampingUnit" />
