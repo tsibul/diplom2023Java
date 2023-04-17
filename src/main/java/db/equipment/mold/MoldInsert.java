@@ -8,10 +8,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "mold_insert")
 public class MoldInsert extends Equipment {
-    @Column(name = "insert_code", length = 2)
-    private String modifierCode;
-    @Column(name = "insert_name", length = 100)
-    private String modifierName;
     @Column(name = "number_cavities", nullable = false)
     private int numberCavities;
     @Column(name = "number_working_cavities", nullable = false)
@@ -37,8 +33,9 @@ public class MoldInsert extends Equipment {
     }
 
     public void setInsertMounted(boolean insertMounted) {
-        if(!this.isSingleInsert()){
-        this.insertMounted = insertMounted;}
+        if (!this.isSingleInsert()) {
+            this.insertMounted = insertMounted;
+        }
     }
 
 
@@ -47,24 +44,9 @@ public class MoldInsert extends Equipment {
     }
 
     public void setInsertMountedTo(MoldModifier insertMountedTo) {
-        if(!this.isSingleInsert()){
-        this.insertMountedTo = insertMountedTo;}
-    }
-
-    public String getModifierCode() {
-        return modifierCode;
-    }
-
-    public void setModifierCode(String modifierCode) {
-        this.modifierCode = modifierCode;
-    }
-
-    public String getModifierName() {
-        return modifierName;
-    }
-
-    public void setModifierName(String modifierName) {
-        this.modifierName = modifierName;
+        if (!this.isSingleInsert()) {
+            this.insertMountedTo = insertMountedTo;
+        }
     }
 
     public int getNumberCavities() {
