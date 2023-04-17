@@ -1,6 +1,8 @@
 package db.product.detail;
 
 import db.product.color.Color;
+import db.rawmaterial.MainMaterial;
+import db.rawmaterial.MasterBatch;
 
 import javax.persistence.*;
 
@@ -13,12 +15,14 @@ public class DetailToProduce {
     private Long detailToProduceId;
     @Column(name = "actual_weight_g", precision = 1)
     private double actualWeightG;
-    @Column(name = "actual_material", length = 40)
-    private String actualMaterial;
+    @ManyToOne(targetEntity = MainMaterial.class)
+    @JoinColumn(name = "actual_material", referencedColumnName = "material_id")
+    private MainMaterial actualMaterial;
     @Column(name = "doze_master_batch", precision = 2, nullable = false)
     private double dozeMasterBatch;
-    @Column(name = "masterBatchName", length = 40)
-    private String masterBatchName;
+    @ManyToOne(targetEntity = MasterBatch.class)
+    @JoinColumn(name = "masterbatch_name", referencedColumnName = "material_id", nullable = false)
+    private MasterBatch masterBatchName;
     @ManyToOne(targetEntity = Detail.class)
     @JoinColumn(name = "detail", referencedColumnName = "detail_id", nullable = false)
     private Detail detail;
@@ -36,28 +40,12 @@ public class DetailToProduce {
         this.actualWeightG = actualWeightG;
     }
 
-    public String getActualMaterial() {
-        return actualMaterial;
-    }
-
-    public void setActualMaterial(String actualMaterial) {
-        this.actualMaterial = actualMaterial;
-    }
-
     public double getDozeMasterBatch() {
         return dozeMasterBatch;
     }
 
     public void setDozeMasterBatch(double dozeMasterBatch) {
         this.dozeMasterBatch = dozeMasterBatch;
-    }
-
-    public String getMasterBatchName() {
-        return masterBatchName;
-    }
-
-    public void setMasterBatchName(String masterBatchName) {
-        this.masterBatchName = masterBatchName;
     }
 
     public Color getColor() {
@@ -94,5 +82,21 @@ public class DetailToProduce {
 
     public void setDetail(Detail detail) {
         this.detail = detail;
+    }
+
+    public MainMaterial getActualMaterial() {
+        return actualMaterial;
+    }
+
+    public void setActualMaterial(MainMaterial actualMaterial) {
+        this.actualMaterial = actualMaterial;
+    }
+
+    public MasterBatch getMasterBatchName() {
+        return masterBatchName;
+    }
+
+    public void setMasterBatchName(MasterBatch masterBatchName) {
+        this.masterBatchName = masterBatchName;
     }
 }

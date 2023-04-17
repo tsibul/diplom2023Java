@@ -2,6 +2,7 @@ package db.product.detail;
 
 import db.equipment.mold.MoldInsert;
 import db.product.Product;
+import db.rawmaterial.MaterialType;
 
 import javax.persistence.*;
 
@@ -16,8 +17,9 @@ public class Detail {
     private String detailName;
     @Column(name = "detail_base_weight_g", precision = 1, nullable = false)
     private double detailBaseWeightG;
-    @Column(name = "detail_base_material", nullable = false)
-    private int detailBaseMaterial;
+    @ManyToOne(targetEntity = MaterialType.class)
+    @JoinColumn(name = "main_material", referencedColumnName = "material_id")
+    private MaterialType materialType;
     @ManyToOne(targetEntity = MoldInsert.class)
     @JoinColumn(name = "mold_insert", referencedColumnName = "equipment_id", nullable = false)
     private MoldInsert moldInsert;
@@ -75,15 +77,7 @@ public class Detail {
         this.detailBaseWeightG = detailBaseWeightG;
     }
 
-    public int getDetailBaseMaterial() {
-        return detailBaseMaterial;
-    }
-
-    public void setDetailBaseMaterial(int detailBaseMaterial) {
-        this.detailBaseMaterial = detailBaseMaterial;
-    }
-
-    public MoldInsert getMoldInsert() {
+      public MoldInsert getMoldInsert() {
         return moldInsert;
     }
 
@@ -119,4 +113,11 @@ public class Detail {
         this.standardItemsPerBox = standardItemsPerBox;
     }
 
+    public MaterialType getMaterialType() {
+        return materialType;
+    }
+
+    public void setMaterialType(MaterialType materialType) {
+        this.materialType = materialType;
+    }
 }
