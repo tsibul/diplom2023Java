@@ -46,6 +46,8 @@ public class MoldModifier extends Equipment {
     public void setModifierMounted(boolean modifierMounted) {
         if (!this.singleModifier) {
             this.modifierMounted = modifierMounted;
+        } else {
+            this.modifierMounted = true;
         }
     }
 
