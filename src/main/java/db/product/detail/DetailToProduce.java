@@ -6,8 +6,12 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "detail_to_produce")
-public class DetailToProduce extends Detail{
-    @Column(name = "actual_weight_g", nullable = false, precision = 1)
+public class DetailToProduce {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "detail_to_produce_id")
+    private Long detailToProduceId;
+    @Column(name = "actual_weight_g", precision = 1)
     private double actualWeightG;
     @Column(name = "actual_material", length = 40)
     private String actualMaterial;
@@ -15,6 +19,9 @@ public class DetailToProduce extends Detail{
     private double dozeMasterBatch;
     @Column(name = "masterBatchName", length = 40)
     private String masterBatchName;
+    @ManyToOne(targetEntity = Detail.class)
+    @JoinColumn(name = "detail", referencedColumnName = "detail_id", nullable = false)
+    private Detail detail;
     @ManyToOne(targetEntity = Color.class)
     @JoinColumn(name = "color", referencedColumnName = "color_id", nullable = false)
     private Color color;
@@ -71,5 +78,21 @@ public class DetailToProduce extends Detail{
 
     public void setItemsPerBox(int itemsPerBox) {
         this.itemsPerBox = itemsPerBox;
+    }
+
+    public Long getDetailToProduceId() {
+        return detailToProduceId;
+    }
+
+    public void setDetailToProduceId(Long detailToProduceId) {
+        this.detailToProduceId = detailToProduceId;
+    }
+
+    public Detail getDetail() {
+        return detail;
+    }
+
+    public void setDetail(Detail detail) {
+        this.detail = detail;
     }
 }

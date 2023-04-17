@@ -5,8 +5,9 @@ import db.product.Product;
 
 import javax.persistence.*;
 
-@MappedSuperclass
-public abstract class Detail {
+@Entity
+@Table(name = "detail")
+public class Detail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "detail_id")
@@ -117,4 +118,5 @@ public abstract class Detail {
     public void setStandardItemsPerBox(int standardItemsPerBox) {
         this.standardItemsPerBox = standardItemsPerBox;
     }
+
 }
