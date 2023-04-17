@@ -10,7 +10,6 @@ import org.hibernate.query.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import java.util.ArrayList;
-import java.util.List;
 
 public class MoldBaseList implements EquipmentList<MoldBase, InjectionMoldingMachine> {
     private ArrayList<MoldBase> moldBases;
