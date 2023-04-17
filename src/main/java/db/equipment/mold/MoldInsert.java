@@ -1,9 +1,13 @@
 package db.equipment.mold;
 
 import db.equipment.Equipment;
+import hibernate.factory.HibernateSessionFactory;
+import org.hibernate.Session;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.query.Query;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 
 @Entity
 @Table(name = "mold_insert")
@@ -35,9 +39,10 @@ public class MoldInsert extends Equipment {
     public void setInsertMounted(boolean insertMounted) {
         if (!this.isSingleInsert()) {
             this.insertMounted = insertMounted;
+        } else {
+            this.insertMounted = true;
         }
     }
-
 
     public MoldModifier getInsertMountedTo() {
         return insertMountedTo;
@@ -46,6 +51,15 @@ public class MoldInsert extends Equipment {
     public void setInsertMountedTo(MoldModifier insertMountedTo) {
         if (!this.isSingleInsert()) {
             this.insertMountedTo = insertMountedTo;
+        } else {
+            if (this.insertMountedTo == null) {
+                Session session = HibernateSessionFactory.getSessionFactory().openSession();
+                Query query = session.createQuery("select moldModifier from InsertToModifierEntity where moldInsert = :param");
+                query.setParameter("param", this);
+                MoldModifier moldModifier = (MoldModifier) query.uniqueResult();
+                session.close();
+                this.insertMountedTo = moldModifier;
+            }
         }
     }
 
