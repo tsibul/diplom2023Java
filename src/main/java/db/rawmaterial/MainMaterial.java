@@ -20,7 +20,7 @@ public class MainMaterial extends Material{
     @Column(name = "if_reused")
     private boolean ifReused;
     @ManyToOne(targetEntity = Producer.class)
-    @JoinColumn(name = "producer", referencedColumnName = "producer_id")
+    @JoinColumn(name = "producer", referencedColumnName = "id")
     private Producer producer;
 
     public MaterialType getMaterialType() {

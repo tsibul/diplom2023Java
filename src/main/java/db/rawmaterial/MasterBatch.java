@@ -16,7 +16,7 @@ public class MasterBatch extends Material{
     @Column(name = "standard_doze", precision = 2)
     private double standardDoze;
     @ManyToOne(targetEntity = Producer.class)
-    @JoinColumn(name = "producer", referencedColumnName = "producer_id", nullable = false)
+    @JoinColumn(name = "producer", referencedColumnName = "id", nullable = false)
     private Producer producer;
     @ManyToOne(targetEntity = MaterialType.class)
     @JoinColumn(name = "main_material", referencedColumnName = "material_id")
